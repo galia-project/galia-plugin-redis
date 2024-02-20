@@ -1,0 +1,5 @@
+cache.RedisCache.host: redis
+cache.RedisCache.port: 6379
+cache.RedisCache.ssl: false
+cache.RedisCache.password:
+cache.RedisCache.database:

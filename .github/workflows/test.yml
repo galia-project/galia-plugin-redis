@@ -1,0 +1,20 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      # Helps setup-java cache downloads get unstuck
+      SEGMENT_DOWNLOAD_TIMEOUT_MINS: 2
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 22
+          cache: maven
+      - name: Build and run
+        env:
+          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
+        run: docker compose -f docker/Linux_x86-64_JDK22/docker-compose.yml up --exit-code-from galia-plugin-redis

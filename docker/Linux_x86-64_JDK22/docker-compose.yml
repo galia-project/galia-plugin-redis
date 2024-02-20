@@ -1,0 +1,16 @@
+#
+# N.B.: docker compose must be invoked from the project root directory:
+#
+# docker-compose -f path/to/docker-compose.yml up --build --exit-code-from galia-plugin-redis
+#
+version: '3'
+services:
+  galia-plugin-redis:
+    platform: linux/amd64
+    build:
+      args:
+        github_pat: ${ACTIONS_PAT}
+      context: ../../
+      dockerfile: $PWD/docker/Linux_x86-64_JDK22/Dockerfile
+  redis:
+    image: redis

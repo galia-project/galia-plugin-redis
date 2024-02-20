@@ -1,0 +1,15 @@
+##
+# This file contains all of the configuration keys used by RedisCache. Simply
+# copy them into your main application configuration.
+#
+
+#----------------------------------------
+# RedisCache
+#----------------------------------------
+
+# !! Redis connection info.
+cache.RedisCache.host: localhost
+cache.RedisCache.port: 6379
+cache.RedisCache.ssl: false
+cache.RedisCache.password:
+cache.RedisCache.database: 0
